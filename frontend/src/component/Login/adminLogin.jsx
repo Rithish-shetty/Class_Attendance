@@ -1,0 +1,52 @@
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+const AdminLogin = () => {
+
+    const navigate = useNavigate()
+
+    const [name , setName] = useState('')
+    const [password , setPassword] = useState('')
+
+    const Submit = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:3001/adminLogin' , {name , password})
+        .then(result => {
+            console.log("result" , result.data)
+            if(result.data === "success"){
+                console.log(result , "Login success")
+                navigate('/AdminHome')
+            }
+            else{
+                console.log("mismatch")
+            }
+        })
+        .catch(err => console.log(err))
+    }
+
+    return (
+        <div>
+            <h4>Admin Login Page</h4>
+        <form onSubmit={Submit}>
+            <label htmlFor="name">Enter Name</label><br />
+                <input type="text" 
+                name="name"
+                onChange={e => setName(e.target.value)}
+                /> <br />
+
+            <label htmlFor="pass">Enter Password</label><br />
+                <input type="text"
+                name="pass"
+                onChange={e => setPassword(e.target.value)}
+                /><br />
+                <button type="submit">Submit</button>
+        </form>
+        <Link to='/Register'>User Registration</Link><br />
+        <Link to='/'>User Login</Link><br />
+        <Link to='/LectureLogin'>Login as Lecturer</Link> <br />
+        </div>
+    )
+}
+
+export default AdminLogin;
