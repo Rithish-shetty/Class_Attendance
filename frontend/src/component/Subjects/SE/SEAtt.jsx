@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../Table/Table";
 import axios from 'axios';
+import STable from "../../Table/Stable";
 
-const DIP = () => {
+const SEAtt = (props) => {
 
     const [student , setStudent] = useState([])
 
-    const [selectedDate , setSelectedDate] = useState("")
+    const [selectedDate , setSelectedDate] = useState();
 
     const arr = []
 
     console.log("Student" , student )
+
+    console.log("Date from se" , selectedDate)
 
     useEffect(() => {
         axios.get("http://localhost:3001/getStudent")
@@ -20,11 +23,11 @@ const DIP = () => {
 
     const update = async() => {
         try{
-            const add  = await axios.put("http://localhost:3001/dip/add/"+arr)
+            const add  = await axios.put("http://localhost:3001/add/"+arr)
             console.log(add.data)
 
-            const dipDate = await axios.put("http://localhost:3001/dipDate/add/"+arr , {selectedDate})
-            console.log(dipDate.data)
+            const seDate = await axios.put("http://localhost:3001/seDate/add/"+arr , {selectedDate})
+            console.log(seDate.data)
 
             arr.length = 0
             window.location.reload()
@@ -51,40 +54,41 @@ const DIP = () => {
     const dateFunc = (date) => {
         setSelectedDate(date)
     }
-    
+
     const noOfClass = (totalClass) => {
-        console.log("total class in lamp" , totalClass)
-        axios.put("http://localhost:3001/dip_total" , {totalClass})
+        console.log("total class in se" , totalClass)
+        axios.put("http://localhost:3001/se_total" , {totalClass})
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
+
         window.location.reload()
     }
-
+    
     return(
         <div>
-            <Table value = {student} subName={"DIP"} onRemove={remove} Sub={update} present={getDetails} sub="dip" 
-            sName = {"dip_date"}  att = {"dip_present"} subjectName={"dip_date"}
+            <STable value = {student} subName={"SE"} onRemove={remove} Sub={update} present={getDetails} sub="se" subjectName={"se_date"} 
+            sName = {"se_date"}  att = {"se_present"}
             btnName = {"Present"}
             sendDate = {dateFunc}
             addClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/dipDate/addClass")
+                axios.put("http://localhost:3001/seDate/addClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
             }}
             removeClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/dipDate/removeClass")
+                axios.put("http://localhost:3001/seDate/removeClass")   
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
             }}
-            totalClass = {"dip_total"}
+            totalClass = {"se_total"}
             noOfClass = {noOfClass}
             />
         </div>
     );
 }
 
-export default DIP;
+export default SEAtt;

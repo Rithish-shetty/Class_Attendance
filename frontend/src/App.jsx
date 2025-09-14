@@ -16,6 +16,11 @@ import AdminHome from "./component/AdminHome/AdminHome";
 import AddLecturer from "./component/AddLecturer/AddLecturer";
 import LecturerLogin from "./component/Login/LecturerLogin";
 import DeleteLecturer from "./component/DeleteStudents/DeleteLecturer";
+import StdHome from "./component/StdHome/StdHome";
+import SEAtt from "./component/Subjects/SE/SEAtt";
+import MERNAtt from "./component/Subjects/MERN/MERNAtt";
+import LAMPAtt from "./component/Subjects/LAMP/LAMPAtt";
+import DIPAtt from "./component/Subjects/DIP/DIPAtt";
 
 
 const App = () => {
@@ -28,10 +33,15 @@ const App = () => {
         <Route path="/LectureLogin" element={<LecturerLogin />}></Route>
         <Route path="/Home" element={<Home />}></Route>
         <Route path="/AdminHome" element={<AdminHome />}></Route>
+        <Route path="/StdHome" element={<StdHome />}></Route>
         <Route path="/DIP" element={<DIP />}></Route>
+        <Route path="/DIPAtt" element={<DIPAtt />}></Route>
         <Route path="/LAMP" element={<LAMP />}></Route>
+        <Route path="/LAMPAtt" element={<LAMPAtt />}></Route>
         <Route path="/MERN" element={<MERN />}></Route>
+        <Route path="/MERNAtt" element={<MERNAtt />}></Route>
         <Route path="/SE" element={<SE />}></Route>
+        <Route path="/SEAtt" element={<SEAtt />}></Route>
         <Route path="/AddStd" element={<AddStd />}></Route>
         <Route path="/AddLecturer" element={<AddLecturer />}></Route>
         <Route path="/DeleteStd" element={<DeleteStd />}></Route>

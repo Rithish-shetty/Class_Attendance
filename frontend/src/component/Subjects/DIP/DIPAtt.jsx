@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../Table/Table";
 import axios from 'axios';
+import STable from "../../Table/Stable";
 
-const DIP = () => {
+const DIPAtt = () => {
 
     const [student , setStudent] = useState([])
 
@@ -62,7 +63,7 @@ const DIP = () => {
 
     return(
         <div>
-            <Table value = {student} subName={"DIP"} onRemove={remove} Sub={update} present={getDetails} sub="dip" 
+            <STable value = {student} subName={"DIP"} onRemove={remove} Sub={update} present={getDetails} sub="dip" 
             sName = {"dip_date"}  att = {"dip_present"} subjectName={"dip_date"}
             btnName = {"Present"}
             sendDate = {dateFunc}
@@ -87,4 +88,4 @@ const DIP = () => {
     );
 }
 
-export default DIP;
+export default DIPAtt;

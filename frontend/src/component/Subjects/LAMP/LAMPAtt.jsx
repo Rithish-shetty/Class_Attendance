@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../Table/Table";
 import axios from 'axios';
+import STable from "../../Table/Stable";
 
-const DIP = () => {
+const LAMPAtt = () => {
 
     const [student , setStudent] = useState([])
 
@@ -20,11 +21,11 @@ const DIP = () => {
 
     const update = async() => {
         try{
-            const add  = await axios.put("http://localhost:3001/dip/add/"+arr)
+            const add  = await axios.put("http://localhost:3001/lamp/add/"+arr)
             console.log(add.data)
 
-            const dipDate = await axios.put("http://localhost:3001/dipDate/add/"+arr , {selectedDate})
-            console.log(dipDate.data)
+            const lampDate = await axios.put("http://localhost:3001/lampDate/add/"+arr , {selectedDate})
+            console.log(lampDate.data)
 
             arr.length = 0
             window.location.reload()
@@ -51,40 +52,41 @@ const DIP = () => {
     const dateFunc = (date) => {
         setSelectedDate(date)
     }
-    
+
     const noOfClass = (totalClass) => {
         console.log("total class in lamp" , totalClass)
-        axios.put("http://localhost:3001/dip_total" , {totalClass})
+        axios.put("http://localhost:3001/lamp_total" , {totalClass})
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
+
         window.location.reload()
     }
 
+    
     return(
         <div>
-            <Table value = {student} subName={"DIP"} onRemove={remove} Sub={update} present={getDetails} sub="dip" 
-            sName = {"dip_date"}  att = {"dip_present"} subjectName={"dip_date"}
+            <STable value = {student} subName={"LAMP"} onRemove={remove} Sub={update} present={getDetails} sub="lamp" 
+            sName = {"lamp_date"}  att = {"lamp_present"} subjectName={"lamp_date"}
             btnName = {"Present"}
             sendDate = {dateFunc}
             addClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/dipDate/addClass")
+                axios.put("http://localhost:3001/lampDate/addClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
-            }}
+            }   }
             removeClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/dipDate/removeClass")
+                axios.put("http://localhost:3001/lampDate/removeClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
             }}
-            totalClass = {"dip_total"}
+            totalClass = {"lamp_total"}
             noOfClass = {noOfClass}
-            />
-        </div>
+            />        </div>
     );
 }
 
-export default DIP;
+export default LAMPAtt;

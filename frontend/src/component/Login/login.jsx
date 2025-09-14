@@ -16,7 +16,7 @@ const Login = () => {
             console.log("result" , result.data)
             if(result.data === "success"){
                 console.log(result , "Login success")
-                navigate('/Home')
+                navigate('/StdHome')
             }
             else{
                 console.log("mismatch")

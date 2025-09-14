@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../Table/Table";
 import axios from 'axios';
+import STable from "../../Table/Stable";
 
-const DIP = () => {
+const MERNAtt = () => {
 
     const [student , setStudent] = useState([])
 
@@ -18,13 +19,13 @@ const DIP = () => {
         .catch(err => console.log(err))
     }, [])
 
-    const update = async() => {
+     const update = async() => {
         try{
-            const add  = await axios.put("http://localhost:3001/dip/add/"+arr)
+            const add  = await axios.put("http://localhost:3001/mern/add/"+arr)
             console.log(add.data)
 
-            const dipDate = await axios.put("http://localhost:3001/dipDate/add/"+arr , {selectedDate})
-            console.log(dipDate.data)
+            const seDate = await axios.put("http://localhost:3001/mernDate/add/"+arr , {selectedDate})
+            console.log(seDate.data)
 
             arr.length = 0
             window.location.reload()
@@ -36,7 +37,7 @@ const DIP = () => {
     }
 
     const remove = (id) => {
-        axios.put("http://localhost:3001/remove/"+id)
+        axios.put("http://localhost:3001/mern/remove/"+id)
         // window.location.reload()
     }
 
@@ -51,40 +52,42 @@ const DIP = () => {
     const dateFunc = (date) => {
         setSelectedDate(date)
     }
-    
+
     const noOfClass = (totalClass) => {
-        console.log("total class in lamp" , totalClass)
-        axios.put("http://localhost:3001/dip_total" , {totalClass})
+        console.log("total class in mern" , totalClass)
+        axios.put("http://localhost:3001/mern_total" , {totalClass})
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
+
         window.location.reload()
     }
 
+    
     return(
         <div>
-            <Table value = {student} subName={"DIP"} onRemove={remove} Sub={update} present={getDetails} sub="dip" 
-            sName = {"dip_date"}  att = {"dip_present"} subjectName={"dip_date"}
+            <STable value = {student} subName={"MERN"} onRemove={remove} Sub={update} present={getDetails} sub="mern" 
+            sName = {"mern_date"}  att = {"mern_present"} subjectName={"mern_date"}
             btnName = {"Present"}
             sendDate = {dateFunc}
             addClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/dipDate/addClass")
+                axios.put("http://localhost:3001/mernDate/addClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
             }}
             removeClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/dipDate/removeClass")
+                axios.put("http://localhost:3001/mernDate/removeClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
             }}
-            totalClass = {"dip_total"}
+            totalClass = {"mern_total"}
             noOfClass = {noOfClass}
             />
         </div>
     );
 }
 
-export default DIP;
+export default MERNAtt;
