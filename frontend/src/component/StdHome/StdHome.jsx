@@ -1,16 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Home from "../Home/Home";
+import "./StdHome.css";
 
 const StdHome = () => {
-    return(
-        <div>
-            <Link to='/SEAtt'>SE Attendance Page</Link><br />
-            <Link to='/MERNAtt'>MERN Attendance Page</Link><br />
-            <Link to='/LAMPAtt'>LAMP Attendance Page</Link><br />
-            <Link to='/DIPAtt'>DIP Attendance Page</Link><br />
+  return (
+    <div className="stdhome-container">
+      <div className="stdhome-card">
+        <h2 className="stdhome-title">Student Dashboard</h2>
+
+        <div className="stdhome-links">
+          <Link to="/SEAtt" className="stdhome-link">
+            SE Attendance Page
+          </Link>
+          <Link to="/MERNAtt" className="stdhome-link">
+            MERN Attendance Page
+          </Link>
+          <Link to="/LAMPAtt" className="stdhome-link">
+            LAMP Attendance Page
+          </Link>
+          <Link to="/DIPAtt" className="stdhome-link">
+            DIP Attendance Page
+          </Link>
         </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default StdHome;

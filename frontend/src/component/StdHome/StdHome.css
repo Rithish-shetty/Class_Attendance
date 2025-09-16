@@ -1,0 +1,44 @@
+.stdhome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.stdhome-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  text-align: center;
+}
+
+.stdhome-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.stdhome-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stdhome-link {
+  display: block;
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.stdhome-link:hover {
+  background: #007bff;
+  color: #fff;
+}

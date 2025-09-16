@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import './register.css'
+import { useScaling } from "../../Scaling/scaling";
 
 const Register = () => {
 
@@ -22,32 +24,47 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <h4>user Registration Page</h4>
-            <form onSubmit = {Submit} >
-                <label htmlFor="name">Enter Name</label><br />
+        <div className="register-container">
+            <div className="register-card">
+            <h2 className="register-title">User Registration Page</h2>
+            <form onSubmit = {Submit} className="register-form">
+                 <div className="form-group">
+                <label htmlFor="name" className="form-label">Enter Name</label><br />
                 <input type="text" 
                 name="name"
+                className="form-input"
                 onChange={e => setName(e.target.value)}
                 /> <br />
+                </div>
 
-                <label htmlFor="email">Enter Email</label><br />
+                <div className="form-group">
+                <label htmlFor="email" className="form-label">Enter Email</label><br />
                 <input type="text" 
                 name="email"
+                className="form-input"
                 onChange={e => setEmail(e.target.value)}
                 /><br />
+                </div>
 
-                <label htmlFor="pass">Enter Password</label><br />
+                <div className="form-group">
+                <label htmlFor="pass" className="form-label">Enter Password</label><br />
                 <input type="text"
                 name="name"
+                className="form-input"
                 onChange={e => setPassword(e.target.value)}
                 /><br />
-                <button type="submit">Submit</button>
+                </div>
+
+                <button type="submit"  className="submit-btn">Submit</button>
             </form><br />
-            <Link to='/'>User Login</Link><br />
-            <Link to='/LectureLogin'>Login as Lecturer</Link> <br />
-            <Link to='/adminLogin'>Login as Admin</Link>
+
+            <div className="login-links">
+            <Link to='/' className="login-link">User Login</Link><br />
+            <Link to='/LectureLogin' className="login-link">Login as Lecturer</Link> <br />
+            <Link to='/adminLogin' className="login-link">Login as Admin</Link>
         </div>
+       </div> 
+       </div>
     )
 }
 

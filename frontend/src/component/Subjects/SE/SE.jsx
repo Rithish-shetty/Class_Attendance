@@ -25,7 +25,7 @@ const SE = (props) => {
             const add  = await axios.put("http://localhost:3001/add/"+arr)
             console.log(add.data)
 
-            const seDate = await axios.put("http://localhost:3001/seDate/add/"+arr , {selectedDate})
+            const seDate = await axios.put(`"http://localhost:3001/seDate/add/"${arr} `, {selectedDate})
             console.log(seDate.data)
 
             arr.length = 0
@@ -36,7 +36,7 @@ const SE = (props) => {
         }
         
     }
-
+    
     const remove = (id) => {
         axios.put("http://localhost:3001/remove/"+id)
         // window.location.reload()
@@ -54,6 +54,7 @@ const SE = (props) => {
         setSelectedDate(date)
     }
 
+    
     const noOfClass = (totalClass) => {
         console.log("total class in se" , totalClass)
         axios.put("http://localhost:3001/se_total" , {totalClass})

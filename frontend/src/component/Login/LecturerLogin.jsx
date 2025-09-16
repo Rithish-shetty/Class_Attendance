@@ -38,26 +38,37 @@ const LecturerLogin = () => {
     }
 
     return (
-        <div>
-            <h4>Lecturer Login Page</h4>
-        <form onSubmit={Submit}>
+        <div classNme="login-container">
+            <div className="login-card">
+            <h2 className="login-title">Lecturer Login Page</h2>
+        <form onSubmit={Submit} className="login-form">
+
+            <div className="form-group">
             <label htmlFor="name">Enter Name</label><br />
                 <input type="text" 
                 name="name"
                 onChange={e => setName(e.target.value)}
                 /> <br />
+            </div> 
 
+            <div className="form-group">
             <label htmlFor="pass">Enter Password</label><br />
                 <input type="text"
                 name="pass"
                 onChange={e => setPassword(e.target.value)}
                 /><br />
-                <button type="submit">Submit</button>
+            </div>
+
+                <button type="submit" className="submit-btn">Submit</button>
         </form>
-        <Link to='/Register'>Register</Link>
+        
+        <div className="login-links">
+        <Link to='/Register' className="login-link">Register</Link>
         <br />
-        <Link to='/'>User Login</Link><br />
-        <Link to='/adminLogin'>Login as Admin</Link>
+        <Link to='/' className="login-link">User Login</Link><br />
+        <Link to='/adminLogin' className="login-link">Login as Admin</Link>
+        </div>
+        </div>
         </div>
     )
 }
