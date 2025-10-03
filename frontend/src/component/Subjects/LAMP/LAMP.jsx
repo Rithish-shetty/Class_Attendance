@@ -13,17 +13,17 @@ const LAMP = () => {
     console.log("Student" , student )
 
     useEffect(() => {
-        axios.get("http://localhost:3001/getStudent")
+        axios.get("https://class-attendance-9e04.onrender.com/getStudent")
         .then(item => setStudent(item.data))
         .catch(err => console.log(err))
     }, [])
 
     const update = async() => {
         try{
-            const add  = await axios.put("http://localhost:3001/lamp/add/"+arr)
+            const add  = await axios.put("https://class-attendance-9e04.onrender.com/lamp/add/"+arr)
             console.log(add.data)
 
-            const lampDate = await axios.put("http://localhost:3001/lampDate/add/"+arr , {selectedDate})
+            const lampDate = await axios.put("https://class-attendance-9e04.onrender.com/lampDate/add/"+arr , {selectedDate})
             console.log(lampDate.data)
 
             arr.length = 0
@@ -36,13 +36,13 @@ const LAMP = () => {
     }
 
     const remove = (id) => {
-        axios.put("http://localhost:3001/remove/"+id)
+        axios.put("https://class-attendance-9e04.onrender.com/remove/"+id)
         // window.location.reload()
     }
 
     const getDetails = (id) => {
         console.log("details ID:" , id)
-        axios.get("http://localhost:3001/getDetails/"+id)
+        axios.get("https://class-attendance-9e04.onrender.com/getDetails/"+id)
         .then(result => arr.push(result.data._id))
         .catch(err => console.log(err))
         console.log("aarr" , arr)
@@ -54,7 +54,7 @@ const LAMP = () => {
 
     const noOfClass = (totalClass) => {
         console.log("total class in lamp" , totalClass)
-        axios.put("http://localhost:3001/lamp_total" , {totalClass})
+        axios.put("https://class-attendance-9e04.onrender.com/lamp_total" , {totalClass})
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
 
@@ -70,14 +70,14 @@ const LAMP = () => {
             sendDate = {dateFunc}
             addClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/lampDate/addClass")
+                axios.put("https://class-attendance-9e04.onrender.com/lampDate/addClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
             }   }
             removeClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/lampDate/removeClass")
+                axios.put("https://class-attendance-9e04.onrender.com/lampDate/removeClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()

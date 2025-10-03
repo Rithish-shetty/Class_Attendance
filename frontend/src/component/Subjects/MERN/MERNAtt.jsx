@@ -14,17 +14,17 @@ const MERNAtt = () => {
     console.log("Student" , student )
 
     useEffect(() => {
-        axios.get("http://localhost:3001/getStudent")
+        axios.get("https://class-attendance-9e04.onrender.com/getStudent")
         .then(item => setStudent(item.data))
         .catch(err => console.log(err))
     }, [])
 
      const update = async() => {
         try{
-            const add  = await axios.put("http://localhost:3001/mern/add/"+arr)
+            const add  = await axios.put("https://class-attendance-9e04.onrender.com/mern/add/"+arr)
             console.log(add.data)
 
-            const seDate = await axios.put("http://localhost:3001/mernDate/add/"+arr , {selectedDate})
+            const seDate = await axios.put("https://class-attendance-9e04.onrender.com/mernDate/add/"+arr , {selectedDate})
             console.log(seDate.data)
 
             arr.length = 0
@@ -37,13 +37,13 @@ const MERNAtt = () => {
     }
 
     const remove = (id) => {
-        axios.put("http://localhost:3001/mern/remove/"+id)
+        axios.put("https://class-attendance-9e04.onrender.com/mern/remove/"+id)
         // window.location.reload()
     }
 
     const getDetails = (id) => {
         console.log("details ID:" , id)
-        axios.get("http://localhost:3001/getDetails/"+id)
+        axios.get("https://class-attendance-9e04.onrender.com/getDetails/"+id)
         .then(result => arr.push(result.data._id))
         .catch(err => console.log(err))
         console.log("aarr" , arr)
@@ -55,7 +55,7 @@ const MERNAtt = () => {
 
     const noOfClass = (totalClass) => {
         console.log("total class in mern" , totalClass)
-        axios.put("http://localhost:3001/mern_total" , {totalClass})
+        axios.put("https://class-attendance-9e04.onrender.com/mern_total" , {totalClass})
         .then(res => console.log(res.data))
         .catch(err => console.log(err))
 
@@ -71,14 +71,14 @@ const MERNAtt = () => {
             sendDate = {dateFunc}
             addClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/mernDate/addClass")
+                axios.put("https://class-attendance-9e04.onrender.com/mernDate/addClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()
             }}
             removeClass = {(e) => {
                 e.preventDefault();
-                axios.put("http://localhost:3001/mernDate/removeClass")
+                axios.put("https://class-attendance-9e04.onrender.com/mernDate/removeClass")
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err))
                 window.location.reload()

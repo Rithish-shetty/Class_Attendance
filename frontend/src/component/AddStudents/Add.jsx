@@ -20,7 +20,7 @@ const AddStd = () => {
     try {
       e.preventDefault();
 
-      const student = await axios.post("http://localhost:3001/create", {
+      const student = await axios.post("https://class-attendance-9e04.onrender.com/create", {
         regNo,
         name,
         se: 0,
@@ -36,7 +36,7 @@ const AddStd = () => {
       console.log(student.data._id);
       const docid = student.data._id;
 
-      const result = await axios.post("http://localhost:3001/createDoc", {
+      const result = await axios.post("https://class-attendance-9e04.onrender.com/createDoc", {
         regNo,
         name,
         date: `${date} / ${month} / ${year} - ${ac_day}`,
