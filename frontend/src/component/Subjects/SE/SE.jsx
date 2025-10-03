@@ -25,7 +25,7 @@ const SE = (props) => {
             const add  = await axios.put("http://localhost:3001/add/"+arr)
             console.log(add.data)
 
-            const seDate = await axios.put(`"http://localhost:3001/seDate/add/"${arr} `, {selectedDate})
+            const seDate = await axios.put(`http://localhost:3001/seDate/add/${arr} `, {selectedDate})
             console.log(seDate.data)
 
             arr.length = 0

@@ -10,6 +10,7 @@ const Table = (props) => {
   const [selectedDate, setSelectedDate] = useState();
 
   console.log(selectedDate, ": Selected Date");
+  
   console.log(present, "value from table");
 
   return (
