@@ -12,7 +12,7 @@ const Login = () => {
   const Submit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3001/login", { name, password })
+      .post("https://class-attendance-1.onrender.com/login", { name, password })
       .then((result) => {
         console.log("result", result.data);
         if (result.data === "success") {

@@ -8,7 +8,7 @@ const DeleteLecturer = () => {
     const [Lecturer , setLecturer] = useState([])
 
     useEffect(() => {
-            axios.get("https://class-attendance-9e04.onrender.com/getLecturer")
+            axios.get("https://class-attendance-1.onrender.com/getLecturer")
             .then(item => setLecturer(item.data))
             .catch(err => console.log(err))
         }, [])
@@ -17,7 +17,7 @@ const DeleteLecturer = () => {
 
     const deletion = async (id) => {
         try{
-            const a = await axios.delete("https://class-attendance-9e04.onrender.com/LecturerModel/delete/" + id)
+            const a = await axios.delete("https://class-attendance-1.onrender.com/LecturerModel/delete/" + id)
             console.log("LecturerModel deleting" , a)
 
             window.location.reload()

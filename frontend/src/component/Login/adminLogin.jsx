@@ -11,7 +11,7 @@ const AdminLogin = () => {
 
     const Submit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/adminLogin' , {name , password})
+        axios.post('https://class-attendance-1.onrender.com/adminLogin' , {name , password})
         .then(result => {
             console.log("result" , result.data)
             if(result.data === "success"){

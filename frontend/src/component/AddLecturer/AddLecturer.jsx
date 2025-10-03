@@ -14,7 +14,7 @@ const AddLecturer = () => {
     try {
       e.preventDefault();
 
-      const lecturer = await axios.post("http://localhost:3001/createLecturer", {
+      const lecturer = await axios.post("https://class-attendance-1.onrender.com/createLecturer", {
         name,
         password,
         sub,

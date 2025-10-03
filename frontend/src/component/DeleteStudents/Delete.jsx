@@ -8,7 +8,7 @@ const DeleteStd = () => {
     const [student , setStudent] = useState([])
 
     useEffect(() => {
-            axios.get("https://class-attendance-9e04.onrender.com/getStudent")
+            axios.get("https://class-attendance-1.onrender.com/getStudent")
             .then(item => setStudent(item.data))
             .catch(err => console.log(err))
         }, [])
@@ -17,10 +17,10 @@ const DeleteStd = () => {
 
     const deletion = async (id) => {
         try{
-            const a = await axios.delete("https://class-attendance-9e04.onrender.com/SEModel/delete/" + id)
+            const a = await axios.delete("https://class-attendance-1.onrender.com/SEModel/delete/" + id)
             console.log("SEModel deleting" , a)
 
-            const b = await axios.delete("https://class-attendance-9e04.onrender.com/DOCModel/delete/" + id)
+            const b = await axios.delete("https://class-attendance-1.onrender.com/DOCModel/delete/" + id)
             console.log("DOCModel deleting" , b)
 
             window.location.reload()

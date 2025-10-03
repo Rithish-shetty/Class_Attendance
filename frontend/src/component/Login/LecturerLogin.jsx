@@ -11,7 +11,7 @@ const LecturerLogin = () => {
 
     const Submit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/LectureLogin' , {name , password})
+        axios.post('https://class-attendance-1.onrender.com/LectureLogin' , {name , password})
         .then(result => {
             console.log("result" , result.data)
             if(result.data === "SE"){
