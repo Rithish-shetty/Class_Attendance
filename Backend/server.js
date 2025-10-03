@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001; // ✅ Use Render's PORT
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb://localhost:27017/Subject")
+mongoose.connect("mongodb+srv://rithishsr77_db_user:<db_password>@cluster0.m38yfra.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
     const today = new Date()
     const day = today.getDay()
