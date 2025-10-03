@@ -16,7 +16,14 @@ const PORT = process.env.PORT || 3001; // ✅ Use Render's PORT
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://rithishsr77_db_user:<db_password>@cluster0.m38yfra.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+const MONGO_URI = "mongodb+srv://rithishsr77_db_user:<db_password>@cluster0.m38yfra.mongodb.net/Subject?retryWrites=true&w=majority&appName=Cluster0"
+
+mongoose.connect(MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB connected ✅"))
+.catch(err => console.error("MongoDB connection error:", err));
 
     const today = new Date()
     const day = today.getDay()
