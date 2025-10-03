@@ -11,6 +11,8 @@ const e = require('express')
 
 const app = express()
 
+const PORT = process.env.PORT || 3001; // ✅ Use Render's PORT
+
 app.use(cors())
 app.use(express.json())
 
@@ -422,6 +424,6 @@ app.put(('/lamp_total') , (req , res) => {
 
 
 
-app.listen(3001 , () => {
+app.listen(PORT , () => {
     console.log("server is runningg")
 })
