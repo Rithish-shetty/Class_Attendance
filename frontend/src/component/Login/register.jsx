@@ -15,7 +15,7 @@ const Register = () => {
     console.log(name , email , password)
 
     const Submit = () => {
-        axios.post('https://class-attendance-9e04.onrender.com' , {name , email , password})
+        axios.post('https://class-attendance-9e04.onrender.com/register' , {name , email , password})
         .then(result => console.log(result))
         .catch(err => console.log(err))
 
