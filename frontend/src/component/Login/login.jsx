@@ -63,13 +63,13 @@ const Login = () => {
         <div className="login-links">
           <Link to="/Register" className="login-link">
             Register
-          </Link>
+          </Link><br />
           <Link to="/LectureLogin" className="login-link">
             Login as Lecturer
-          </Link>
+          </Link><br />
           <Link to="/adminLogin" className="login-link">
             Login as Admin
-          </Link>
+          </Link><br />
         </div>
       </div>
     </div>
